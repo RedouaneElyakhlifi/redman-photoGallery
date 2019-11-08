@@ -4,5 +4,6 @@
 <h1 style='color:blue !important'>Introduction</h1>
 
 <h3>
-  Tired of having difficult plugins without pagination or actual HTML build up procedure?
+  Tired of having difficult plugins without pagination or actual HTML build-up procedure?
+  Well thats all in the past, check-out Redman-photoGallery: free easy to use photoGallery plugin!
 </h3>
