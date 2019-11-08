@@ -1,9 +1,7 @@
 # Redman-photoGallery
 Easy to use photogallery based on javascript and jQuery
 
-<h1 style='color:blue !important'>Hey</h1>
+<h1 style='color:blue !important'>Introduction</h1>
+
 <p>
-<a target="_blank" rel="noopener noreferrer" href="#"><img src="https://camo.githubusercontent.com/d2b50e6a9f621be7350a3f2b68e64f48ccfe7c50/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f64742f72656163742d70686f746f2d67616c6c6572792e737667" alt="npm downloads" data-canonical-src="https://img.shields.io/npm/dt/react-photo-gallery.svg" style="max-width:100%;"></a>
-<a href="#"><img src="https://camo.githubusercontent.com/f2973900752fdbcc941377c8494b7f1bde0bc939/68747470733a2f2f7472617669732d63692e6f72672f6e657074756e69616e2f72656163742d70686f746f2d67616c6c6572792e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/neptunian/react-photo-gallery.svg?branch=master" style="max-width:100%;"></a>
-<a href="#" rel="nofollow"><img src="https://camo.githubusercontent.com/893d9d49cf6697cd20474cb2c27fdd7ff077a04e/68747470733a2f2f64617669642d646d2e6f72672f6e657074756e69616e2f72656163742d70686f746f2d67616c6c6572792e737667" alt="Dependency Status" data-canonical-src="https://david-dm.org/neptunian/react-photo-gallery.svg" style="max-width:100%;"></a>
 </p>
