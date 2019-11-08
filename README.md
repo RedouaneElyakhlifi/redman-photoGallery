@@ -13,7 +13,7 @@
 <h2>Quick preview</h2>
 <h4>On your HTML page</h4>
 <img width:300 height:300 src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview1.JPG" alt="coming soon">
-<h4>When clicking on a Image, you will get the enlarged version</h4>
+<h4>On click an Image</h4>
 <img src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview2.JPG" alt="coming soon">
 <h2>Follow these steps to get started</h2>
 
