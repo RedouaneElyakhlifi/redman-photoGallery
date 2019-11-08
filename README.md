@@ -7,5 +7,5 @@
   Tired of having difficult plugins without pagination or actual HTML build-up procedure?
 </h4>
 <h4>
-  Well thats all in the past, check-out Redman-photoGallery: free easy to use photoGallery plugin!
+  Well thats all in the past, check-out Redman-photoGallery FREE easy to use photoGallery plugin!
 </h4>
