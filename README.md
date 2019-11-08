@@ -11,6 +11,6 @@
   Well thats all in the past, check-out Redman-photoGallery FREE easy to use photoGallery plugin!
 </h4>
 <h2>Quick preview</h2>
-<img src="content/img/preview1.jpg" alt="coming soon"><img src="content/img/preview2.jpg" alt="coming soon">
+<img src="../content/img/preview1.jpg" alt="coming soon"><img src="../content/img/preview2.jpg" alt="coming soon">
 <h2>Follow these steps to get started</h2>
 
