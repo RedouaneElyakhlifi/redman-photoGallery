@@ -21,9 +21,9 @@
         <div class="container m-auto">
             <!--gallery title-->
             <h1 class="font-weight-light text-center mt-4 mb-5">Redman's Foto-Gallery PLUGIN</h1>
-            <div class="row d-flex">
-                <div class="col-12">
-                    <div class="redman-gallery" data-redman-totalCount="17" data-redman-countPerPage="10" data-redman-countPerRow="3">
+            <div class="row no-gutters">
+                <div class="col-12 m-2">
+                    <div class="redman-gallery" data-redman-totalCount="17" data-redman-countPerPage="17" data-redman-countPerRow="3" data-redman-startHeight="600">
                         <img src="img/test1.jpg" alt="fout">
                         <img src="img/test2.jpg" alt="fout">
                         <img src="img/test3.jpg" alt="fout">
@@ -44,9 +44,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row d-flex">
-                <div class="col-12 col-md-6">
-                    <div class="redman-gallery" data-redman-totalCount="12" data-redman-countPerPage="4" data-redman-countPerRow="4">
+            <div class="row no-gutters">
+                <div class="col-12 col-md-5 m-2">
+                    <div class="redman-gallery" data-redman-totalCount="12" data-redman-countPerPage="4" data-redman-countPerRow="4" data-redman-startHeight="500">
                         <img src="img/test1.jpg" alt="fout">
                         <img src="img/test2.jpg" alt="fout">
                         <img src="img/test3.jpg" alt="fout">
@@ -61,8 +61,8 @@
                         <img src="img/test6.jpg" alt="fout">
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
-                    <div class="redman-gallery" data-redman-totalCount="12" data-redman-countPerPage="5" data-redman-countPerRow="4">
+                <div class="col-12 col-md-5 m-2">
+                    <div class="redman-gallery" data-redman-totalCount="12" data-redman-countPerPage="9" data-redman-countPerRow="4" data-redman-startHeight="125">
                         <img src="img/test1.jpg" alt="fout">
                         <img src="img/test2.jpg" alt="fout">
                         <img src="img/test3.jpg" alt="fout">
