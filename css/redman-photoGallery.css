@@ -49,9 +49,6 @@ button.redman-large:hover>i {
     height: auto;
     width: 100%;
 }
-.text-decoration-underline{
-    text-decoration: underline;
-}
 
 #redman-enlarged-gallery{
     position:fixed;
