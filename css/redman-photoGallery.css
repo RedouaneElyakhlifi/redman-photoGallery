@@ -1,5 +1,5 @@
 @charset "UTF-8"; 
-button.redman, button.redman-large {
+button.redman, button.redman-large,button.redman-dark {
 	outline: none !important;
 	border: none;
 	background: transparent;
@@ -10,7 +10,6 @@ button.redman, button.redman-large {
 }
 .bg-redman{
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,50,1) 35%, rgba(0,5,136,1) 100%);
 
 }
 .redman-width{
@@ -24,6 +23,15 @@ button.redman:hover {
 }
 button.redman:hover>i {
     color:rgb(0, 0, 0) !important;
+    font-weight: bold;
+}
+button.redman-dark:hover {
+    cursor: pointer;
+    color:rgb(255, 255, 255) !important;
+    font-weight: bold;
+}
+button.redman-dark:hover>i {
+    color:rgb(255, 255, 255) !important;
     font-weight: bold;
 }
 button.redman-large:hover {
@@ -61,8 +69,8 @@ button.redman-large:hover>i {
     display:none;
 }
 .redman-img-large{
-    background-size:100% 100%;
-    background-position:center;
+    margin: auto;
+    background-size:contain;
     background-repeat:no-repeat;
     width:inherit;
     height:920px;
@@ -93,6 +101,7 @@ button.redman-large:hover>i {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     background-repeat:no-repeat;
     width:inherit;
+    max-width:300px;
     height:250px;
     background-size:cover;
     background-position:center;
@@ -106,6 +115,8 @@ button.redman-large:hover>i {
 @media only screen and (min-width: 300px) {
     .redman-myImg{
         height:250px;
+        width:inherit;
+        max-width:500px;
     }
     #redman-small-content{
         max-height:60px;
@@ -117,6 +128,8 @@ button.redman-large:hover>i {
 @media only screen and (min-width: 500px) {
     .redman-myImg{
         height:250px;
+        width:inherit;
+        max-width:767px;
     }
     #redman-small-content{
         max-height:70px;
@@ -128,12 +141,19 @@ button.redman-large:hover>i {
 @media only screen and (min-width: 767px) {
     .redman-myImg{
         height:250px;
+        width:inherit;
+        max-width:1000px;
+    }
+    .redman-img-large{
+    background-position:center;
     }
 }
 
 @media only screen and (min-width: 1000px) {
     .redman-myImg{
         height:250px;
+        width:inherit;
+        max-width:1200px;
     }
     .redman-img-small{
         height:120px;
@@ -142,6 +162,7 @@ button.redman-large:hover>i {
 @media only screen and (min-width: 1200px) {
     .redman-myImg{
         height:250px;
+        width:inherit;
     }
     .redman-img-small{
         width:303px;
