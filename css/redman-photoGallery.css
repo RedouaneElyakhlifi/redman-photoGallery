@@ -1,14 +1,5 @@
 @charset "UTF-8"; 
-* {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
-}
-body, html {
-	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
-}
-button {
+button.redman, button.redman-large {
 	outline: none !important;
 	border: none;
 	background: transparent;
@@ -26,26 +17,31 @@ button {
     width:inherit;
 }
 
-button:hover {
+button.redman:hover {
     cursor: pointer;
-    color:rgba(41, 247, 0) !important;
+    color:rgb(0, 0, 0) !important;
+    font-weight: bold;
 }
-button:hover>i {
-    color:rgba(41, 247, 0) !important;
+button.redman:hover>i {
+    color:rgb(0, 0, 0) !important;
+    font-weight: bold;
 }
-.mt-md-6 {
-    margin-top:6rem;
+button.redman-large:hover {
+    cursor: pointer;
+    color:rgb(255, 255, 255) !important;
+    font-weight: bold;
+}
+button.redman-large:hover>i {
+    color:rgb(255, 255, 255) !important;
+    font-weight: bold;
+}
+.text-redman-green {
+    color:rgb(0, 0, 0) !important;
   }
-   .text-green {
-    color:rgb(5, 221, 5) !important;
-  }
-  .text-darkgreen {
-      color:rgb(6, 180, 6);
-      text-shadow:1px 1px 1px rgb(0,0,0);
-    }
-.cursorProgress{
-    cursor:progress !important;
+.text-redman-grey{
+    color:rgb(143,143,143) !important;
 }
+
 #redman-mainContainer {
     position: relative;
     margin:0;
