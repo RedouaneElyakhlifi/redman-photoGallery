@@ -1,7 +1,9 @@
 
+    $('.redman-gallery').css('margin','auto');
     var aantalGalleries = Number($('.redman-gallery').length);
 
     for($a=0 ; $a<=aantalGalleries-1 ; $a++){
+      
     //getting global variables
 
       var $aantalImg = Number($($('.redman-gallery')[$a]).attr('data-redman-totalCount')); 
@@ -19,7 +21,7 @@
       var imagesCol = document.createElement('div');
       imagesCol.setAttribute('class','col-12 ');
       var imagesRow =  document.createElement('div');
-      imagesRow.setAttribute('class','row redman-row'+$a);
+      imagesRow.setAttribute('class','row redman-row'+$a+' m-auto');
       imagesRow.setAttribute('style','width:100%');
       var lastPageIndex = $aantalImgPerPage-(($aantalPages*$aantalImgPerPage)-$aantalImg);
       lastPageIndex = ($aantalImgPerPage*($aantalPages-1))+(lastPageIndex-1);
@@ -86,15 +88,26 @@
         var right = document.createElement('div');
         buttonLeft.id = 'redman-prevBundleButton'+$a;
         buttonRight.id = 'redman-nextBundleButton'+$a;
+        if($($('.redman-gallery')[$a]).attr('data-redman-theme')=='dark'){
+          buttonLeft.setAttribute('class','redman-dark redman-prevBundleButton');
+          buttonRight.setAttribute('class','redman-dark redman-nextBundleButton');
+        }
+        else{
         buttonLeft.setAttribute('class','redman redman-prevBundleButton');
         buttonRight.setAttribute('class','redman redman-nextBundleButton');
+        }
         $(buttonLeft).css('display','none');
-        buttonLeft.innerHTML = '<i class="icon-arrow-left text-redman-grey font-weight-bold bg-light p-2"></i>'
-        buttonRight.innerHTML = '<i class="icon-arrow-right text-redman-grey font-weight-bold bg-light p-2"></i>'
+        if($($('.redman-gallery')[$a]).attr('data-redman-theme')=='dark'){
+          buttonLeft.innerHTML = '<i class="icon-arrow-left text-redman-grey font-weight-bold "></i>'
+          buttonRight.innerHTML = '<i class="icon-arrow-right text-redman-grey font-weight-bold "></i>'
+        }else{
+        buttonLeft.innerHTML = '<i class="icon-arrow-left text-redman-grey font-weight-bold bg-light "></i>'
+        buttonRight.innerHTML = '<i class="icon-arrow-right text-redman-grey font-weight-bold bg-light "></i>'
+        }
         left.appendChild(buttonLeft);
         right.appendChild(buttonRight);
-        left.setAttribute('class',' col-1 ');
-        right.setAttribute('class',' col-1 ');
+        left.setAttribute('class',' col-1 d-flex justify-content-center');
+        right.setAttribute('class',' col-1 d-flex justify-content-center');
         $('#redman-breadcrumbs'+$a).append(left);
         var buttonCollection = document.createElement('div');
         buttonCollection.setAttribute('class','col-10 d-flex justify-content-center');
@@ -102,7 +115,12 @@
         for($i=1 ; $i<=aantalBreadcrumbs ; $i++){
           if ($i == 1){
             var button = document.createElement('button');
-            button.setAttribute('class','redman d-inline m-2 text-dark font-weight-bold redman-breadCrumb-item');
+            if($($('.redman-gallery')[$a]).attr('data-redman-theme')=='dark'){
+              button.setAttribute('class','redman-dark d-inline text-light font-weight-bold redman-breadCrumb-item');
+            }
+            else{
+            button.setAttribute('class','redman d-inline text-dark font-weight-bold redman-breadCrumb-item');
+            }
             button.setAttribute('id','redman-breadCrumb'+$a+$i);
             button.setAttribute('data-redman-active','yes');
             button.innerHTML = ($i);
@@ -110,7 +128,12 @@
           }
           else{
             var button = document.createElement('button');
-            button.setAttribute('class','redman d-inline m-2 text-redman-grey redman-breadCrumb-item');
+            if($($('.redman-gallery')[$a]).attr('data-redman-theme')=='dark'){
+              button.setAttribute('class','redman-dark d-inline text-redman-grey redman-breadCrumb-item');
+            }
+            else{
+            button.setAttribute('class','redman d-inline text-redman-grey redman-breadCrumb-item');
+            }
             button.setAttribute('id','redman-breadCrumb'+$a+$i);
             button.setAttribute('data-redman-active','no');
             button.innerHTML = ($i);
@@ -123,7 +146,11 @@
           $('#redman-nextBundleButton'+$a).css('display','none');
           $('#redman-breadcrumbs'+$a).removeClass('d-flex').addClass('d-none');
         }
+        if($($('.redman-gallery')[$a]).attr('data-redman-theme')=='dark'){
+          $('#redman-breadcrumbs'+$a).css('color','rgb(143,143,143) !important');
+        }else{
         $('#redman-breadcrumbs'+$a).css('color','rgb(143,143,143) !important');
+        }
         /*keeping pages as big as the 1st page was */
         var firstImageOfGallery = 'redman-image'+$a+0;
         firstImageOfGallery = $('#'+firstImageOfGallery).css('width');
@@ -173,13 +200,23 @@
           }    
           for($i=1 ; $i<=aantalBreadcrumbs ; $i++){
             if($i != Number(pageValue)){
-              $('#redman-breadCrumb'+galleryId+$i).attr('data-redman-active','no').removeClass('text-dark font-weight-bold');
-              $('#redman-breadCrumb'+galleryId+$i).attr('data-redman-active','no').addClass('text-redman-grey');
+              if($($('.redman-gallery')[galleryId]).attr('data-redman-theme')=='dark'){
+                $('#redman-breadCrumb'+galleryId+$i).attr('data-redman-active','no').removeClass('text-light font-weight-bold');
+                $('#redman-breadCrumb'+galleryId+$i).attr('data-redman-active','no').addClass('text-redman-grey');
+              }else{
+                $('#redman-breadCrumb'+galleryId+$i).attr('data-redman-active','no').removeClass('text-light font-weight-bold');
+                $('#redman-breadCrumb'+galleryId+$i).attr('data-redman-active','no').addClass('text-redman-grey');
+              }
 
             }else{
+              if($($('.redman-gallery')[galleryId]).attr('data-redman-theme')=='dark'){
+                $('#redman-breadCrumb'+galleryId+pageValue).attr('data-redman-active','yes').addClass('text-light font-weight-bold');
+                $('#redman-breadCrumb'+galleryId+pageValue).attr('data-redman-active','yes').removeClass('text-redman-grey');
+              }
+              else{
             $('#redman-breadCrumb'+galleryId+pageValue).attr('data-redman-active','yes').addClass('text-dark font-weight-bold');
             $('#redman-breadCrumb'+galleryId+pageValue).attr('data-redman-active','yes').removeClass('text-redman-grey');
-
+              }
             }
           }
           for($i=1 ; $i<=aantalBreadcrumbs ; $i++){
@@ -210,14 +247,20 @@
       $('#redman-prevBundleButton'+galleryId).css('display','block');
 
       var prevActive = $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('id');
+      if($($('.redman-gallery')[galleryId]).attr('data-redman-theme')=='dark'){
+        $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('data-redman-active','no').removeClass('text-light font-weight-bold').addClass('text-redman-grey');
+      }else{
       $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('data-redman-active','no').removeClass('text-dark font-weight-bold').addClass('text-redman-grey');
-
+      }
         prevActive = prevActive.substr(17,prevActive.length);
         prevActive = prevActive.substr(1,prevActive.length);
         prevActive = Number(prevActive)+1;
         prevActive = 'redman-breadCrumb' + String(galleryId) + String(prevActive);
+        if($($('.redman-gallery')[galleryId]).attr('data-redman-theme')=='dark'){
+          $('#'+prevActive).attr('data-redman-active','yes').addClass('text-light font-weight-bold').removeClass('text-redman-grey');
+        }else{
         $('#'+prevActive).attr('data-redman-active','yes').addClass('text-dark font-weight-bold').removeClass('text-redman-grey');
-
+        }
       for($i=0 ; $i<=$aantalImg-1 ; $i++){
       if($('.redman-myImg[id^="redman-image'+galleryId+'"').hasClass('redman-myImg-shown') == true){
          $('.redman-myImg[id="redman-image'+galleryId+$i+'"').removeClass('redman-myImg-shown').addClass('redman-myImg-hidden');
@@ -249,12 +292,20 @@
       $('#redman-nextBundleButton'+galleryId).css('display','block');
 
       var prevActive = $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('id');
+      if($($('.redman-gallery')[$a]).attr('data-redman-theme')=='dark'){
+        $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('data-redman-active','no').removeClass('text-light font-weight-bold').addClass('text-redman-grey');
+      }else{
       $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('data-redman-active','no').removeClass('text-dark font-weight-bold').addClass('text-redman-grey');
+      }
         prevActive = prevActive.substr(17,prevActive.length);
         prevActive = prevActive.substr(1,prevActive.length);
         prevActive = Number(prevActive)-1;
         prevActive = 'redman-breadCrumb' + String(galleryId) + String(prevActive);
+        if($($('.redman-gallery')[galleryId]).attr('data-redman-theme')=='dark'){
+          $('#'+prevActive).attr('data-redman-active','yes').addClass('text-light font-weight-bold').removeClass('text-redman-grey');
+        }else{
         $('#'+prevActive).attr('data-redman-active','yes').addClass('text-dark font-weight-bold').removeClass('text-redman-grey');
+        }
         for($i=0 ; $i<=$aantalImg-1 ; $i++){
           if($('.redman-myImg[id^="redman-image'+galleryId+'"').hasClass('redman-myImg-shown') == true){
              $('.redman-myImg[id="redman-image'+galleryId+$i+'"').removeClass('redman-myImg-shown').addClass('redman-myImg-hidden');
@@ -312,7 +363,6 @@
     galleryId = galleryId.substr(0,1);
     var images = Array();
     var aantal = $('button[id^="redman-image'+galleryId+'"]').length;
-    console.log(imageId,aantal-1);
     var image = $('button[id="redman-image'+galleryId+imageId+'"]');
     var values = Object.values(image);
     var src = values[0].getAttribute('style');
@@ -447,6 +497,17 @@
       });
     });
     
+    
+
+var width = $(window).width();
+$(window).on('resize', function() {
+  if ($(this).width() != width) {
+    width = $(this).width();
+    console.log(window.location.href);    
+    window.location.href = window.location.href;
+  }
+});
+
 
 
     function aantalImgCalc($aantalImgPerPage2){
