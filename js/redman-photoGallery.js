@@ -16,24 +16,8 @@
       var row = document.createElement('div');
       $(row).attr('class','row no-gutters');
       $(row).attr('id','redman-pageheight'+$a);
-      var buttonLeft = document.createElement('button');
-      var buttonRight = document.createElement('button');
-      var left = document.createElement('div');
-      var right = document.createElement('div');
-      buttonLeft.id = 'redman-prevBundleButton'+$a;
-      buttonRight.id = 'redman-nextBundleButton'+$a;
-      buttonLeft.setAttribute('class','redman-prevBundleButton');
-      buttonRight.setAttribute('class','redman-nextBundleButton');
-      $(buttonLeft).css('display','none');
-      buttonLeft.innerHTML = '<i class="icon-arrow-left text-white font-weight-bold bg-dark p-3"></i>'
-      buttonRight.innerHTML = '<i class="icon-arrow-right text-white font-weight-bold bg-dark p-3"></i>'
-      left.appendChild(buttonLeft);
-      right.appendChild(buttonRight);
-      left.setAttribute('class','col-6 mt-2 order-1 mt-md-0 col-md-1 d-flex justify-content-center');
-      right.setAttribute('class','col-6 order-2 order-md-3 mt-2 mt-md-0 col-md-1 d-flex justify-content-center');
-      row.appendChild(left);
       var imagesCol = document.createElement('div');
-      imagesCol.setAttribute('class','col-12 order-3 order-md-2 col-md-10');
+      imagesCol.setAttribute('class','col-12 ');
       var imagesRow =  document.createElement('div');
       imagesRow.setAttribute('class','row redman-row'+$a);
       imagesRow.setAttribute('style','width:100%');
@@ -57,6 +41,7 @@
             else{
             image[$j] = $($('.redman-gallery')[$a]).children()[$j];
             var src = $(image[$j]).attr('src');
+            if (src != undefined){
             var image = document.createElement('button');
             var icon = document.createElement('i');
             icon.setAttribute('class','icon-magnifier-add h4 text-white align-self-center');
@@ -73,6 +58,7 @@
             image.appendChild(overlay);
             column.appendChild(image);
             }
+            }
           
           }
         
@@ -82,7 +68,6 @@
         //showing the 1st images
         imagesCol.appendChild(imagesRow);
         row.appendChild(imagesCol);
-        row.appendChild(right);
         $($('.redman-gallery')[$a]).html(row);
         for ($i=0 ; $i<=$aantalImgPerPage-1 ; $i++){
           $('#redman-image'+$a+$i).removeClass('redman-myImg-hidden').addClass('redman-myImg-shown');
@@ -93,41 +78,65 @@
         var aantalBreadcrumbs = Math.ceil($aantalImg / $aantalImgPerPage);
         var breadCrumbPosition = document.createElement('div');
         breadCrumbPosition.setAttribute('id','redman-breadcrumbs'+$a);
-        breadCrumbPosition.setAttribute('class','d-flex justify-content-center');
+        breadCrumbPosition.setAttribute('class','row no-gutters d-flex justify-content-center');
         $($('.redman-gallery')[$a]).prepend(breadCrumbPosition);
+        var buttonLeft = document.createElement('button');
+        var buttonRight = document.createElement('button');
+        var left = document.createElement('div');
+        var right = document.createElement('div');
+        buttonLeft.id = 'redman-prevBundleButton'+$a;
+        buttonRight.id = 'redman-nextBundleButton'+$a;
+        buttonLeft.setAttribute('class','redman redman-prevBundleButton');
+        buttonRight.setAttribute('class','redman redman-nextBundleButton');
+        $(buttonLeft).css('display','none');
+        buttonLeft.innerHTML = '<i class="icon-arrow-left text-redman-grey font-weight-bold bg-light p-2"></i>'
+        buttonRight.innerHTML = '<i class="icon-arrow-right text-redman-grey font-weight-bold bg-light p-2"></i>'
+        left.appendChild(buttonLeft);
+        right.appendChild(buttonRight);
+        left.setAttribute('class',' col-1 ');
+        right.setAttribute('class',' col-1 ');
+        $('#redman-breadcrumbs'+$a).append(left);
+        var buttonCollection = document.createElement('div');
+        buttonCollection.setAttribute('class','col-10 d-flex justify-content-center');
         var $html = '';
         for($i=1 ; $i<=aantalBreadcrumbs ; $i++){
           if ($i == 1){
-            $html = $html+'<button class="d-inline m-2 text-green redman-breadCrumb-item" id="redman-breadCrumb'+$a+$i+'" data-redman-active="yes">'+$i+'</button>';
+            var button = document.createElement('button');
+            button.setAttribute('class','redman d-inline m-2 text-dark font-weight-bold redman-breadCrumb-item');
+            button.setAttribute('id','redman-breadCrumb'+$a+$i);
+            button.setAttribute('data-redman-active','yes');
+            button.innerHTML = ($i);
+            buttonCollection.append(button);
           }
           else{
-            $html = $html+'<button class="d-inline m-2 redman-breadCrumb-item" id="redman-breadCrumb'+$a+$i+'" data-redman-active="no">'+$i+'</button>';
+            var button = document.createElement('button');
+            button.setAttribute('class','redman d-inline m-2 text-redman-grey redman-breadCrumb-item');
+            button.setAttribute('id','redman-breadCrumb'+$a+$i);
+            button.setAttribute('data-redman-active','no');
+            button.innerHTML = ($i);
+            buttonCollection.append(button);
           }
-          $('#redman-breadcrumbs'+[$a]).html($html);
+          $('#redman-breadcrumbs'+$a).append(buttonCollection);
         }
-        if (aantalBreadcrumbs <= 1){
+        $('#redman-breadcrumbs'+$a).append(right);
+        if ($('button[id^="redman-breadCrumb'+$a).length <= 1){
           $('#redman-nextBundleButton'+$a).css('display','none');
+          $('#redman-breadcrumbs'+$a).removeClass('d-flex').addClass('d-none');
         }
+        $('#redman-breadcrumbs'+$a).css('color','rgb(143,143,143) !important');
         /*keeping pages as big as the 1st page was */
         var firstImageOfGallery = 'redman-image'+$a+0;
         firstImageOfGallery = $('#'+firstImageOfGallery).css('width');
         $('button[id^="redman-image'+$a+'"]').css('width',firstImageOfGallery);
+        var customHeight = $($('.redman-gallery')[$a]).attr('data-redman-startHeight');
+        if (customHeight != undefined){
+        $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        }
         var pageHeigth = $($('.redman-row'+$a)[0]).css('height');
         $('#redman-pageheight'+$a).css('height',pageHeigth);
+        $('#redman-pageheight'+$a).addClass('d-flex justify-content-center');
       }
 
-      /*for($i=0; $i<=$('.redman-col').length-1; $i++){
-        var colToChange = ($('.redman-col')[$i]);
-        var firstKid = $('.redman-col')[$i].firstChild;
-        if($(firstKid).hasClass('redman-myImg-hidden') == true){
-          $(colToChange).removeClass('d-flex flex-column flex-md-row');
-          $(colToChange).addClass('d-none');
-        }
-        else{
-          $(colToChange).removeClass('d-none');
-          $(colToChange).addClass('d-flex flex-column flex-md-row');
-        }
-      }*/
 
       $('.redman-myImg').hover(function(){
         var galleryId = $(this).attr('id');
@@ -164,9 +173,13 @@
           }    
           for($i=1 ; $i<=aantalBreadcrumbs ; $i++){
             if($i != Number(pageValue)){
-              $('#redman-breadCrumb'+galleryId+$i).attr('data-redman-active','no').removeClass('text-green');
+              $('#redman-breadCrumb'+galleryId+$i).attr('data-redman-active','no').removeClass('text-dark font-weight-bold');
+              $('#redman-breadCrumb'+galleryId+$i).attr('data-redman-active','no').addClass('text-redman-grey');
+
             }else{
-            $('#redman-breadCrumb'+galleryId+pageValue).attr('data-redman-active','yes').addClass('text-green');
+            $('#redman-breadCrumb'+galleryId+pageValue).attr('data-redman-active','yes').addClass('text-dark font-weight-bold');
+            $('#redman-breadCrumb'+galleryId+pageValue).attr('data-redman-active','yes').removeClass('text-redman-grey');
+
             }
           }
           for($i=1 ; $i<=aantalBreadcrumbs ; $i++){
@@ -185,18 +198,6 @@
               $('#redman-prevBundleButton'+galleryId).css('display','block');
             }
           }
-          /*for($i=0; $i<=$('.redman-col').length-1; $i++){
-            var colToChange = ($('.redman-col')[$i]);
-            var firstKid = $('.redman-col')[$i].firstChild;
-            if($(firstKid).hasClass('redman-myImg-hidden') == true){
-              $(colToChange).removeClass('d-flex flex-column flex-md-row');
-              $(colToChange).addClass('d-none');
-            }
-            else{
-              $(colToChange).removeClass('d-none');
-              $(colToChange).addClass('d-flex flex-column flex-md-row');
-            }
-          }*/
     });
 
     $('.redman-nextBundleButton').on('click', function(){
@@ -209,12 +210,13 @@
       $('#redman-prevBundleButton'+galleryId).css('display','block');
 
       var prevActive = $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('id');
-      $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('data-redman-active','no').removeClass('text-green');
+      $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('data-redman-active','no').removeClass('text-dark font-weight-bold').addClass('text-redman-grey');
+
         prevActive = prevActive.substr(17,prevActive.length);
         prevActive = prevActive.substr(1,prevActive.length);
         prevActive = Number(prevActive)+1;
         prevActive = 'redman-breadCrumb' + String(galleryId) + String(prevActive);
-        $('#'+prevActive).attr('data-redman-active','yes').addClass('text-green');
+        $('#'+prevActive).attr('data-redman-active','yes').addClass('text-dark font-weight-bold').removeClass('text-redman-grey');
 
       for($i=0 ; $i<=$aantalImg-1 ; $i++){
       if($('.redman-myImg[id^="redman-image'+galleryId+'"').hasClass('redman-myImg-shown') == true){
@@ -235,22 +237,6 @@
       else{
         $('#redman-nextBundleButton'+galleryId).css('display','block');
       }
-
-      /*for($i=0; $i<=$('.redman-col').length-1; $i++){
-        var colToChange = ($('.redman-col')[$i]);
-        var firstKid = $('.redman-col')[$i].firstChild;
-        if($(firstKid).hasClass('redman-myImg-hidden') == true){
-          $(colToChange).removeClass('d-flex flex-column flex-md-row');
-          $(colToChange).addClass('d-none');
-        }
-        else{
-          $(colToChange).removeClass('d-none');
-          $(colToChange).addClass('d-flex flex-column flex-md-row');
-    
-        }
-    
-      }*/
-
     });
 
     $('.redman-prevBundleButton').on('click', function(){
@@ -263,12 +249,12 @@
       $('#redman-nextBundleButton'+galleryId).css('display','block');
 
       var prevActive = $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('id');
-      $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('data-redman-active','no').removeClass('text-green');
+      $($('.redman-breadCrumb-item[data-redman-active="yes"]')[galleryId]).attr('data-redman-active','no').removeClass('text-dark font-weight-bold').addClass('text-redman-grey');
         prevActive = prevActive.substr(17,prevActive.length);
         prevActive = prevActive.substr(1,prevActive.length);
         prevActive = Number(prevActive)-1;
         prevActive = 'redman-breadCrumb' + String(galleryId) + String(prevActive);
-        $('#'+prevActive).attr('data-redman-active','yes').addClass('text-green');
+        $('#'+prevActive).attr('data-redman-active','yes').addClass('text-dark font-weight-bold').removeClass('text-redman-grey');
         for($i=0 ; $i<=$aantalImg-1 ; $i++){
           if($('.redman-myImg[id^="redman-image'+galleryId+'"').hasClass('redman-myImg-shown') == true){
              $('.redman-myImg[id="redman-image'+galleryId+$i+'"').removeClass('redman-myImg-shown').addClass('redman-myImg-hidden');
@@ -287,22 +273,6 @@
         else{
           $('#redman-prevBundleButton'+galleryId).css('display','block');
         }
-
-        /*for($i=0; $i<=$('.redman-col').length-1; $i++){
-          var colToChange = ($('.redman-col')[$i]);
-          var firstKid = $('.redman-col')[$i].firstChild;
-          if($(firstKid).hasClass('redman-myImg-hidden') == true){
-            $(colToChange).removeClass('d-flex flex-column flex-md-row');
-            $(colToChange).addClass('d-none');
-          }
-          else{
-            $(colToChange).removeClass('d-none');
-            $(colToChange).addClass('d-flex flex-column flex-md-row');
-      
-          }
-      
-        }*/
-
     });
 
     $('.redman-myImg').on('click',function(){
@@ -314,11 +284,11 @@
               '<div id="redman-count" class="p-3">1/12</div>'+
           '</div>'+
           '<div class="col-8 text-center pl-md-5">'+
-              '<button id="redman-prevPic" class="p-3 m-2"><i id="redman-prevPic-icon" class="icon-arrow-left text-white"></i></button>'+
-              '<button id="redman-nextPic" class="p-3 m-2"><i id="redman-nextPic-icon" class="icon-arrow-right text-white"></i></button>'+
+              '<button id="redman-prevPic" class="redman-large p-3 m-2"><i id="redman-prevPic-icon" class="icon-arrow-left text-redman-grey"></i></button>'+
+              '<button id="redman-nextPic" class="redman-large p-3 m-2"><i id="redman-nextPic-icon" class="icon-arrow-right text-redman-grey"></i></button>'+
           '</div>'+
           '<div class="col-2 d-flex justify-content-end">'+
-              '<button id="redman-buttonClose" class="p-1 p-md-3"><i class="icon-close text-white"></i></button>'+
+              '<button id="redman-buttonClose" class="redman-large p-1 p-md-3"><i class="icon-close text-redman-grey"></i></button>'+
           '</div>'+
         '</div>'+
         '<div id="redman-enlarged-content" class="row no-gutters">'+
@@ -335,13 +305,14 @@
     $(div).html($html);
     $('body').append(div);
     $('#redman-enlarged-gallery').css('display','block');
-
+    
     var galleryId = $(this).attr('id');
     galleryId = galleryId.substr(12,galleryId.length);
     var imageId = galleryId.substr(1,2); 
     galleryId = galleryId.substr(0,1);
     var images = Array();
     var aantal = $('button[id^="redman-image'+galleryId+'"]').length;
+    console.log(imageId,aantal-1);
     var image = $('button[id="redman-image'+galleryId+imageId+'"]');
     var values = Object.values(image);
     var src = values[0].getAttribute('style');
@@ -364,21 +335,40 @@
     }
     var $aantalImg = Number($($('.redman-gallery')[galleryId]).attr('data-redman-totalCount'));
     $('#redman-count').html(Number(imageId)+1+'/'+$aantalImg);
+    if(imageId == 0){
+      $('#redman-prevPic').attr('disabled',true);
+      $('#redman-prevPic').attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+      $('#redman-prevPic-icon').attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+      $('#redman-prevPic').hover(function(){
+        $(this).attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+        $('#redman-prevPic-icon').hover(function(){
+          $(this).attr('style','color:rgb(143,143,143) !important;cursor:default !important;font-weight:normal !important');
+        });
+      });
+    }
+    else if(imageId == (aantal-1)){
+      $('#redman-nextPic').attr('disabled',true);
+      $('#redman-nextPic').attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+      $('#redman-nextPic-icon').attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+      $('#redman-nextPic').hover(function(){
+        $(this).attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+        $('#redman-nextPic-icon').hover(function(){
+          $(this).attr('style','color:rgb(143,143,143) !important;cursor:default !important;font-weight:normal !important');
+        });
+      });
+    }
 
       //buttons inside of enlarged gallerij need be inside this function
       //prevPic button
       $('#redman-prevPic').on('click',function(){
         $('#redman-nextPic').attr('disabled',false);
         $('#redman-nextPic').hover(function(){
-          $('#redman-nextPic').attr('style','color:rgba(41, 247, 0) !important;cursor:pointer !important');
+          $('#redman-nextPic').attr('style','color:white !important;cursor:pointer !important;font-weight:bold !important');
+          $('#redman-nextPic-icon').attr('style','cursor:pointer !important;color:white !important;font-weight:bold !important');
           },function(){
-          $('#redman-nextPic').attr('style','color:white !important;cursor:default !important');
+          $('#redman-nextPic').attr('style','color:rgb(143,143,143) !important;cursor:default !important;font-weight:normal !important');
+          $('#redman-nextPic-icon').attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
           });
-        $('#redman-nextPic-icon').hover(function(){
-          $('#redman-nextPic-icon').attr('style','cursor:pointer !important;color:rgba(41, 247, 0) !important');
-          },function(){
-          $('#redman-nextPic-icon').attr('style','cursor:default !important;color:white !important');
-          });    
         var image = $('.redman-img-large').attr('id');
         image = image.substr(17,(image.length));
         image = Number(image)-1;
@@ -391,27 +381,22 @@
         $('.redman-img-large').attr('id', 'redman-img-large'+galleryId+image);
         if(Number(image) == 0){
           $(this).attr('disabled',true);
-          $(this).attr('style','cursor:default !important;color:white !important');
-          $('#redman-prevPic-icon').attr('style','color:white !important;cursor:default !important');
+          $(this).attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+          $('#redman-prevPic-icon').attr('style','color:rgb(143,143,143) !important;cursor:default !important;font-weight:normal !important');
           $(this).hover(function(){
-            $(this).attr('style','cursor:default !important;color:white !important');
-          });
-          $('#redman-prevPic-icon').hover(function(){
-            $('#redman-prevPic-icon').attr('style','color:white !important');
-          });             
+            $(this).attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+            $('#redman-prevPic-icon').attr('style','color:rgb(143,143,143) !important;font-weight:normal !important');
+          });         
         }
         else{
           $(this).attr('disabled',false);
           $(this).hover(function(){
-            $(this).attr('style','cursor:pointer !important;color:rgba(41, 247, 0) !important');
+            $(this).attr('style','cursor:pointer !important;color:white !important,font-weight:bold !important');
+            $('#redman-prevPic-icon').attr('style','cursor:pointer !important;color:white !important;font-weight:bold !important');
           },function(){
-            $(this).attr('style','cursor:default !important;color:white !important');
-          });
-          $('#redman-prevPic-icon').hover(function(){
-            $('#redman-prevPic-icon').attr('style','cursor:pointer !important;color:rgba(41, 247, 0) !important');
-          },function(){
-            $('#redman-prevPic-icon').attr('style','cursor:default !important;color:white !important');
-          });    
+            $(this).attr('style','cursor:default !important;color:rgb(143,143,143) !important,font-weight:normal !important');
+            $('#redman-prevPic-icon').attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+          });  
         }
       });
 
@@ -419,15 +404,12 @@
       $('#redman-nextPic').on('click',function(){
         $('#redman-prevPic').attr('disabled',false);
         $('#redman-prevPic').hover(function(){
-          $('#redman-prevPic').attr('style','color:rgba(41, 247, 0) !important;cursor:pointer !important');
+          $('#redman-prevPic').attr('style','color:white !important;cursor:pointer !important;font-weight:bold !important');
+          $('#redman-prevPic-icon').attr('style','cursor:pointer !important;color:white !important;font-weight:bold !important');
           },function(){
-            $('#redman-prevPic').attr('style','color:white !important;cursor:default !important');
+            $('#redman-prevPic').attr('style','color:rgb(143,143,143) !important;cursor:default !important;font-weight:normal !important');
+            $('#redman-prevPic-icon').attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
           });
-        $('#redman-prevPic-icon').hover(function(){
-          $('#redman-prevPic-icon').attr('style','cursor:pointer !important;color:rgba(41, 247, 0) !important');
-          },function(){
-            $('#redman-prevPic-icon').attr('style','cursor:default !important;color:white !important');
-          });    
         var image = $('.redman-img-large').attr('id');
         image = image.substr(17,(image.length));
         image = Number(image)+1;
@@ -440,26 +422,21 @@
         $('.redman-img-large').attr('id', 'redman-img-large'+galleryId+image);
         if(Number(image) == $aantalImg-1){
           $(this).attr('disabled',true);
-          $(this).attr('style','cursor:default !important;color:white !important');
-          $('#redman-nextPic-icon').attr('style','color:white !important;cursor:default !important');
+          $(this).attr('style','cursor:default !important;color:rgb(143,143,143) !important;font-weight:normal !important');
+          $('#redman-nextPic-icon').attr('style','color:rgb(143,143,143) !important;cursor:default !important;font-weight:normal !important');
           $(this).hover(function(){
-          $(this).attr('style','cursor:default !important');
-          });
-          $('#redman-nextPic-icon').hover(function(){
-            $('#redman-nextPic-icon').attr('style','color:white !important');
+          $(this).attr('style','color:rgb(143,143,143);cursor:default !important;font-weight:normal !important');
+          $('#redman-nextPic-icon').attr('style','color:rgb(143,143,143) !important;font-weight:normal !important');
           });
         }
         else{
           $(this).attr('disabled',false);
           $(this).hover(function(){
-            $(this).attr('style','color:rgba(41, 247, 0) !important;cursor:pointer !important');
+            $(this).attr('style','color:white !important;cursor:pointer !important;font-weight:bold !important');
+            $('#redman-nextPic-icon').attr('style','cursor:pointer;color:white !important;font-weight:bold !important');
           },function(){
-            $(this).attr('style','color:white !important;cursor:default !important');
-          });
-          $('#redman-nextPic-icon').hover(function(){
-            $('#redman-nextPic-icon').attr('style','cursor:pointer;color:rgba(41, 247, 0) !important');
-          },function(){
-            $('#redman-nextPic-icon').attr('style','cursor:default;color:white !important');
+            $(this).attr('style','color:rgb(143,143,143) !important;cursor:default !important;font-weight:normal !important');
+            $('#redman-nextPic-icon').attr('style','cursor:default;color:rgb(143,143,143) !important;font-weight:normal !important');
           });
         }
       });
@@ -469,7 +446,6 @@
         $('body').attr('style','overflow:auto !important');
       });
     });
-
     
 
 
@@ -507,8 +483,15 @@
         }
         else{
         temp = $aantalImgPerRow*temp%1;
-        $aantalImgPerRow = Math.ceil(temp*$aantalImgPerRow);
-        return $aantalImgPerRow;
+        $aantalImgPerRow = temp*$aantalImgPerRow;
+        if($aantalImgPerRow < 1){
+          $aantalImgPerRow = Math.ceil($aantalImgPerRow);
+          return $aantalImgPerRow;
+        }
+        else{
+          $aantalImgPerRow = Math.round($aantalImgPerRow);
+          return $aantalImgPerRow;
+        }
         }
       }
       else{
