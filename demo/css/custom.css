@@ -1,0 +1,19 @@
+
+li{
+    list-style-type:none !important;
+}
+#masthead{
+    background-image:url(../img/masthead.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+#overlay{
+    background-color:rgb(0,0,0,0.8);
+}
+.text-custom{
+    text-shadow: black 5px 5px 1px;
+}
+.text-orange{
+    color:rgb(255, 123, 0);
+}
