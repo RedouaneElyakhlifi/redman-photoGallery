@@ -116,10 +116,10 @@
           if ($i == 1){
             var button = document.createElement('button');
             if($($('.redman-gallery')[$a]).attr('data-redman-theme')=='dark'){
-              button.setAttribute('class','redman-dark d-inline text-light font-weight-bold redman-breadCrumb-item');
+              button.setAttribute('class','redman-dark d-inline text-light font-weight-bold redman-breadCrumb-item pr-1 pl-1');
             }
             else{
-            button.setAttribute('class','redman d-inline text-dark font-weight-bold redman-breadCrumb-item');
+            button.setAttribute('class','redman d-inline text-dark font-weight-bold redman-breadCrumb-item pr-1 pl-1');
             }
             button.setAttribute('id','redman-breadCrumb'+$a+$i);
             button.setAttribute('data-redman-active','yes');
@@ -129,10 +129,10 @@
           else{
             var button = document.createElement('button');
             if($($('.redman-gallery')[$a]).attr('data-redman-theme')=='dark'){
-              button.setAttribute('class','redman-dark d-inline text-redman-grey redman-breadCrumb-item');
+              button.setAttribute('class','redman-dark d-inline text-redman-grey redman-breadCrumb-item pr-1 pl-1');
             }
             else{
-            button.setAttribute('class','redman d-inline text-redman-grey redman-breadCrumb-item');
+            button.setAttribute('class','redman d-inline text-redman-grey redman-breadCrumb-item pr-1 pl-1');
             }
             button.setAttribute('id','redman-breadCrumb'+$a+$i);
             button.setAttribute('data-redman-active','no');
