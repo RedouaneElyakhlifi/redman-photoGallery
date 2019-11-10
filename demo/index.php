@@ -42,6 +42,7 @@
                     <h3 class=" pt-5 ml-0 ml-md-3"><u><strong>Global Dependencies: </strong></u></h3>
                     <ul class="pt-5 ml-0 ml-md-3 h3 font-weight-bold">
                         <li class="p-0 p-md-2"><i class="icon-wrench m-2"></i>Dependencies / Libraries ( are <span class="text-danger">REQUIRED</span>):
+                        <h5 class=" pt-5 ml-0 ml-md-3"><u><strong>COPY/PASTE URL's </strong></u></h5>
                             <ul class="pt-2 h4 font-weight-bold">
                                 <li class="m-0 m-md-2 pt-3"><i class="icon-lock text-danger m-2"></i>Bootstrap <br><br><span class="text-danger">https://<br class="d-md-none">stackpath<br class="d-md-none">.bootstrapcdn<br class="d-md-none">.com/bootstrap/4.3.1/css/bootstrap<br class="d-md-none">.min.css</span> <br><br><span class="text-danger mt-3">https://<br class="d-md-none">stackpath<br class="d-md-none">.bootstrapcdn<br class="d-md-none">.com/bootstrap/4.3.1/js/bootstrap<br class="d-md-none">.min.js</span><br></li>
                                 <li class="m-0 m-md-2 pt-3"><i class="icon-lock text-danger m-2"></i>jQuery <br><br><span class="text-danger">https://code<br class="d-md-none">.jquery<br class="d-md-none">.com/jquery-3<br class="d-md-none">.3.1<br class="d-md-none">.min.js</span></li>
@@ -89,7 +90,11 @@
                                         <li class="pt-2"><i class="icon-options h6 text-dark m-md-2"></i>data-redman-theme = dark  (breadcrumbs and pagination-button colors change).</li>
                                         <li class='mt-2'><small class="text-secondary">image excample:</small><br><img class="img-fluid" src="img/data-attr.jpg" alt="fout"></li>
                                         <li class="mt-2"><i class="icon-lock-open h6 text-success m-md-2"></i>Put all of your images with the correct path inside this div.</li>
-                                        <li class='mt-2'><small class="text-secondary">image excample:</small><br><img class="img-fluid" src="img/putting-img.jpg" alt="fout"></li>
+                                        <li class='mt-2'><small class="text-secondary">image excample:</small><br><img class="img-fluid" src="img/putting-img.jpg" alt="fout"></li><br>
+                                        <li class="mt-2"><i class="icon-lock-open h6 text-success m-md-2"></i><strong>COPY/PASTE empty DIV :</strong></li><br>
+                                        <li class='mt-2 bg-lightgrey '>&#x3c;div class="redman-gallery" data-redman-totalCount="" data-redman-countPerPage="" data-redman-countPerRow="" data-redman-startHeight="" data-redman-theme=""&#x3e; &#x3c;div&#x3e;</li><br>
+                                        <li class="mt-2"><i class="icon-lock-open h6 text-success m-md-2"></i><strong>COPY/PASTE empty IMG :</strong></li><br>
+                                        <li class='mt-2 bg-lightgrey '>&#x3c;img src="" alt=""&#x3e;</li>
                                     </ul>
                                 </li>
                             </ul>
