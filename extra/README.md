@@ -4,7 +4,7 @@
 
 <p>Every visitor will be automatically redirected to the HTTPS secure protocol.
 
-This is just extra and can be implemented in any webpage. Easily secure ur website protocol.</p>
+This is just extra and can be implemented in any webpage.</p>
 
 <h3>I hope you enjoy!</h3> 
 
