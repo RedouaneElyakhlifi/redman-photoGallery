@@ -366,7 +366,8 @@
     var image = $('button[id="redman-image'+galleryId+imageId+'"]');
     var values = Object.values(image);
     var src = values[0].getAttribute('style');
-    src = src.substr(0,39);
+    src = src.substr(0,(src.indexOf(';')+1));
+    console.log(src);
     var img = document.createElement('div');
     img.setAttribute('style',src+'z-index:4999;width:inherit');
     img.setAttribute('class','redman-img-large');
@@ -376,7 +377,8 @@
       images[$i] = $('button[id="redman-image'+galleryId+$i+'"]');
       var values = Object.values(images[$i]);
       var src = values[0].getAttribute('style');
-      src = src.substr(0,39);
+      src = src.substr(0,(src.indexOf(';')+1));
+      console.log(src);
       var img = document.createElement('button');
       img.setAttribute('style',src+'z-index:4999;');
       img.setAttribute('class','redman-img-small');
