@@ -20,5 +20,5 @@
 <h4>Multiple photoGalleries on 1 page:</h4>
 <img src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview4.JPG" alt="coming soon">
 <h2>Getting started | Full Documentation | Demo</h2>
-<h3>Visit:<a href="https://www.mijnsollicitatie.be/jQueryPlugin">www.redman-photogallery.com</a></h3>
+<h3>Visit: <a href="https://www.mijnsollicitatie.be/jQueryPlugin">www.redman-photogallery.com</a></h3>
 
