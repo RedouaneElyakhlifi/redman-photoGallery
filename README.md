@@ -25,3 +25,4 @@
 <h3>Go to <a href="https://github.com/RedouaneElyakhlifi/redman-photoGallery/tree/master/extra/httpsConvert">extra/httpsConvert/ and download <a href="https://github.com/RedouaneElyakhlifi/redman-photoGallery/tree/master/extra/httpsConvert">https.js</a></h3>
 <h3>Insert it as your 1st script on any webpage to redirect your visitors through a secure https-protocol.</h3>
 <h4>This way if visitors visit your website without https-protocol they will be automatically redirected through a secure https-protocol!</h4>
+requirements: must have a valid SSL-certificate.
