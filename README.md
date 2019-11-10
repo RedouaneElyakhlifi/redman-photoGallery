@@ -17,6 +17,7 @@
 <img width:300 height:300 src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview2.JPG" alt="coming soon">
 <h4>Clicking on an image, enlarges it:</h4>
 <img src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview3.JPG" alt="coming soon">
+<h3>Multiple photoGallery's on 1 webpage!!</h3>
 <h2>Getting started | Full Documentation | Demo</h2>
 <a href="https://www.mijnsollicitatie.be/jQueryPlugin">www.redman-photogallery.com</a>
 
