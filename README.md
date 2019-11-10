@@ -16,5 +16,5 @@
 <h4>Clicking on an image, enlarges it:</h4>
 <img src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview2.JPG" alt="coming soon">
 <h2>Follow this link for complete documentation and to get started:</h2>
-<a href="https://www.mijnsollicitatie.be/jQueryPlugin>Documentation Link</a>
+<a href="https://www.mijnsollicitatie.be/jQueryPlugin">Documentation Link</a>
 
