@@ -20,7 +20,7 @@
 <h4>Multiple photoGalleries on 1 page:</h4>
 <img src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview4.JPG" alt="coming soon">
 <h2>Getting started | Full Documentation | Demo</h2>
-<h3>Visit: <a href="https://www.mijnsollicitatie.be/jQueryPlugin">www.redman-photogallery.com</a></h3>
+<h3>Visit: <a href="https://www.mijnsollicitatie.be/demo">www.redman-photogallery.com</a></h3>
 <h2>Extra</h2>
 <h3>Go to <a href="https://github.com/RedouaneElyakhlifi/redman-photoGallery/tree/master/extra/httpsConvert">extra/httpsConvert/ and download <a href="https://github.com/RedouaneElyakhlifi/redman-photoGallery/tree/master/extra/httpsConvert">https.js</a></h3>
 <h3>Insert it as your 1st script on any webpage to redirect your visitors through a secure https-protocol.</h3>
