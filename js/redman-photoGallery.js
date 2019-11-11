@@ -545,7 +545,7 @@ $(window).on('resize', function() {
           return $aantalImgPerRow;
         }
         else{
-          $aantalImgPerRow = Math.round($aantalImgPerRow);
+          $aantalImgPerRow = Math.ceil($aantalImgPerRow);
           return $aantalImgPerRow;
         }
         }
