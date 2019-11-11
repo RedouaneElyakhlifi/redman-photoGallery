@@ -1,8 +1,8 @@
 @charset "UTF-8"; 
 button.redman, button.redman-large,button.redman-dark {
-	outline: none !important;
-	border: none;
-	background: transparent;
+    outline: none !important;
+    border: none;
+    background: transparent;
 }
 
 .bg-redman-black{
@@ -93,7 +93,6 @@ button.redman-large:hover>i {
     display:block;
 }
 .redman-myImg{
-    margin:0.5em;
     margin-bottom:1em;
     border: 2px solid rgb(255,255,255,0.9);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -140,6 +139,7 @@ button.redman-large:hover>i {
 
 @media only screen and (min-width: 767px) {
     .redman-myImg{
+        margin:0.5em;
         height:250px;
         width:inherit;
         max-width:1000px;
