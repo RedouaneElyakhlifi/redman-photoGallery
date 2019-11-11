@@ -44,18 +44,22 @@
             image[$j] = $($('.redman-gallery')[$a]).children()[$j];
             var src = $(image[$j]).attr('src');
             if (src != undefined){
+            var realImage = document.createElement('img');
+            realImage.setAttribute('style','position:absolute;width:100%;height:100%;top:0;left:0');
+            realImage.setAttribute('src', src);
+            realImage.setAttribute('alt','testing');
             var image = document.createElement('button');
+            $(image).attr('id','redman-image'+$a+$j);
+            image.setAttribute('style',"position:relative;");
+            image.setAttribute('class','redman-myImg redman-myImg-hidden');
             var icon = document.createElement('i');
             icon.setAttribute('class','icon-magnifier-add h4 text-white align-self-center');
             icon.setAttribute('style','position:absolute;top:49%;left:40%;');
             var overlay = document.createElement('div');
-            overlay.setAttribute('style','background:rgb(0,0,0,0.5);position:absolute;width:100%;height:100%;top:0;left:0;display:none;');
+            overlay.setAttribute('style','background:rgb(0,0,0,0.5);position:absolute;width:100%;height:100%;top:0;left:0;display:none;z-index:2;');
             overlay.setAttribute('class','redman-img-overlay');
             overlay.setAttribute('id','redman-img-overlay'+$a+$j);
-            image.setAttribute('style',"background-image:url('"+src+"');position:relative;");
-            image.setAttribute('class','redman-myImg redman-myImg-hidden');
-            $(image).attr('id','redman-image'+$a+$j);
-          
+            image.appendChild(realImage);
             overlay.appendChild(icon);
             image.appendChild(overlay);
             column.appendChild(image);
@@ -363,24 +367,18 @@
     galleryId = galleryId.substr(0,1);
     var images = Array();
     var aantal = $('button[id^="redman-image'+galleryId+'"]').length;
-    var image = $('button[id="redman-image'+galleryId+imageId+'"]');
-    var values = Object.values(image);
-    var src = values[0].getAttribute('style');
-    src = src.substr(0,(src.indexOf(';')+1));
-    console.log(src);
+    var image = $('button[id="redman-image'+galleryId+imageId+'"]').children(2)[1];
+    var src = image.getAttribute('src');
     var img = document.createElement('div');
-    img.setAttribute('style',src+'z-index:4999;width:inherit');
+    img.setAttribute('style',"background-image: url('"+src+"');z-index:4999;width:inherit");
     img.setAttribute('class','redman-img-large');
     img.setAttribute('id','redman-img-large'+galleryId+imageId);
     $('#redman-large-content').append(img);
     for($i=0 ; $i<=aantal-1 ; $i++){
-      images[$i] = $('button[id="redman-image'+galleryId+$i+'"]');
-      var values = Object.values(images[$i]);
-      var src = values[0].getAttribute('style');
-      src = src.substr(0,(src.indexOf(';')+1));
-      console.log(src);
+      images[$i] = $('button[id="redman-image'+galleryId+$i+'"]').children(2)[1];
+      var src = image.getAttribute('src');
       var img = document.createElement('button');
-      img.setAttribute('style',src+'z-index:4999;');
+      img.setAttribute('style',"background-image: url('"+src+"');z-index:4999;width:inherit");
       img.setAttribute('class','redman-img-small');
       $('#redman-small-content').append(img);
       
@@ -425,11 +423,9 @@
         image = image.substr(17,(image.length));
         image = Number(image)-1;
         $('#redman-count').html((Number(image)+1)+'/'+$aantalImg);
-        var style = $('button[id="redman-image'+galleryId+image+'"]');
-        style = $(style).attr('style');
-        var index = style.indexOf(')');
-        style = style.substr(0,(index)+1);
-        $('.redman-img-large').attr('style', style+';z-index:4999;width:inherit');
+        var style = $('button[id="redman-image'+galleryId+image+'"]').children(2)[1];
+        style = $(style).attr('src');
+        $('.redman-img-large').attr('style', "background-image: url('"+style+"');z-index:4999;width:inherit");
         $('.redman-img-large').attr('id', 'redman-img-large'+galleryId+image);
         if(Number(image) == 0){
           $(this).attr('disabled',true);
@@ -466,11 +462,9 @@
         image = image.substr(17,(image.length));
         image = Number(image)+1;
         $('#redman-count').html((Number(image)+1)+'/'+$aantalImg);
-        var style = $('button[id="redman-image'+galleryId+image+'"]');
-        style = $(style).attr('style');
-        var index = style.indexOf(')');
-        style = style.substr(0,(index)+1);
-        $('.redman-img-large').attr('style', style+';z-index:4999;width:inherit');
+        var style = $('button[id="redman-image'+galleryId+image+'"]').children(2)[1];
+        style = $(style).attr('src');
+        $('.redman-img-large').attr('style', "background-image: url('"+style+"');z-index:4999;width:inherit");
         $('.redman-img-large').attr('id', 'redman-img-large'+galleryId+image);
         if(Number(image) == $aantalImg-1){
           $(this).attr('disabled',true);
@@ -504,8 +498,7 @@
 var width = $(window).width();
 $(window).on('resize', function() {
   if ($(this).width() != width) {
-    width = $(this).width();
-    console.log(window.location.href);    
+    width = $(this).width();   
     window.location.href = window.location.href;
   }
 });
