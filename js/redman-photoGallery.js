@@ -161,11 +161,21 @@
         $('button[id^="redman-image'+$a+'"]').css('width',firstImageOfGallery);
         var customHeight = $($('.redman-gallery')[$a]).attr('data-redman-startHeight');
         if (customHeight != undefined){
-        $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        if (($(window).width() <= 1200) && ($(window).width() >= 767)){
+          customHeight = (customHeight / $($('.redman-gallery')[$a]).attr("data-redman-screenwidth")) * $(window).width();
+          $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        }
+        else{
+          $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        }
         }
         var pageHeigth = $($('.redman-row'+$a)[0]).css('height');
+        if($(window).width() <= 1000 ){
+
+        }else{
         $('#redman-pageheight'+$a).css('height',pageHeigth);
         $('#redman-pageheight'+$a).addClass('d-flex justify-content-center');
+        }
       }
 
 
