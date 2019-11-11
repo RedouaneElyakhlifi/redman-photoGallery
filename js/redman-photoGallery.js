@@ -545,6 +545,7 @@ $(window).on('resize', function() {
           return $aantalImgPerRow;
         }
         else{
+          
           $aantalImgPerRow = Math.ceil($aantalImgPerRow);
           return $aantalImgPerRow;
         }
@@ -564,7 +565,7 @@ $(window).on('resize', function() {
               return $aantalImgPerRow;
             }
             else{
-              test = Math.ceil(Number($aantalImgPerRow) * temp);
+              test = Math.round(Number($aantalImgPerRow) * temp);
               if(test == 0 ){
                 $aantalImgPerRow = $aantalImgPerRow;
                 return $aantalImgPerRow;
