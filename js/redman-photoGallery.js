@@ -358,7 +358,7 @@
     '</div>';
     var div = document.createElement('div');
     $(div).html($html);
-    $('body').append(div);
+    $('body').prepend(div);
     $('#redman-enlarged-gallery').css('display','block');
     
     var galleryId = $(this).attr('id');
@@ -367,7 +367,7 @@
     galleryId = galleryId.substr(0,1);
     var images = Array();
     var aantal = $('button[id^="redman-image'+galleryId+'"]').length;
-    var image = $('button[id="redman-image'+galleryId+imageId+'"]').children(2)[1];
+    var image = $('button[id="redman-image'+galleryId+imageId+'"]').children()[0];
     var src = image.getAttribute('src');
     var img = document.createElement('div');
     img.setAttribute('style',"background-image: url('"+src+"');z-index:4999;width:inherit");
@@ -375,7 +375,7 @@
     img.setAttribute('id','redman-img-large'+galleryId+imageId);
     $('#redman-large-content').append(img);
     for($i=0 ; $i<=aantal-1 ; $i++){
-      images[$i] = $('button[id="redman-image'+galleryId+$i+'"]').children(2)[1];
+      images[$i] = $('button[id="redman-image'+galleryId+$i+'"]').children()[0];
       var src = image.getAttribute('src');
       var img = document.createElement('button');
       img.setAttribute('style',"background-image: url('"+src+"');z-index:4999;width:inherit");
@@ -423,7 +423,7 @@
         image = image.substr(17,(image.length));
         image = Number(image)-1;
         $('#redman-count').html((Number(image)+1)+'/'+$aantalImg);
-        var style = $('button[id="redman-image'+galleryId+image+'"]').children(2)[1];
+        var style = $('button[id="redman-image'+galleryId+image+'"]').children()[0];
         style = $(style).attr('src');
         $('.redman-img-large').attr('style', "background-image: url('"+style+"');z-index:4999;width:inherit");
         $('.redman-img-large').attr('id', 'redman-img-large'+galleryId+image);
@@ -462,7 +462,7 @@
         image = image.substr(17,(image.length));
         image = Number(image)+1;
         $('#redman-count').html((Number(image)+1)+'/'+$aantalImg);
-        var style = $('button[id="redman-image'+galleryId+image+'"]').children(2)[1];
+        var style = $('button[id="redman-image'+galleryId+image+'"]').children()[0];
         style = $(style).attr('src');
         $('.redman-img-large').attr('style', "background-image: url('"+style+"');z-index:4999;width:inherit");
         $('.redman-img-large').attr('id', 'redman-img-large'+galleryId+image);
