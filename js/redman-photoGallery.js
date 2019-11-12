@@ -161,8 +161,12 @@
         $('button[id^="redman-image'+$a+'"]').css('width',firstImageOfGallery);
         var customHeight = $($('.redman-gallery')[$a]).attr('data-redman-startHeight');
         if (customHeight != undefined){
-        if (($(window).width() <= 1200) && ($(window).width() >= 767)){
+        if (($(window).width() <= 1200) && ($(window).width() >= 768)){
           customHeight = (customHeight / $($('.redman-gallery')[$a]).attr("data-redman-screenwidth")) * $(window).width();
+          $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        }
+        else if(($(window).width() <= 767)){
+          customHeight = (customHeight / 100)*150;
           $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
         }
         else{
