@@ -165,8 +165,16 @@
           customHeight = (customHeight / $($('.redman-gallery')[$a]).attr("data-redman-screenwidth")) * $(window).width();
           $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
         }
-        else if(($(window).width() <= 767)){
-          customHeight = (customHeight / 100)*150;
+        else if(($(window).width() <= 767) && ($(window).width() >= 501)){
+          customHeight = (customHeight / 100)*180;
+          $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        }
+        else if(($(window).width() <= 500 ) && ($(window).width() >= 300)){
+          customHeight = (customHeight / 100)*100;
+          $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        }
+        else if(($(window).width() <= 299 ) && ($(window).width() >= 0)){
+          customHeight = (customHeight / 100)*80;
           $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
         }
         else{
@@ -553,9 +561,13 @@ $(window).on('resize', function() {
         }
         else{
         temp = $aantalImgPerRow*temp%1;
-        $aantalImgPerRow = temp*$aantalImgPerRow;
-        if($aantalImgPerRow < 1){
-          $aantalImgPerRow = Math.ceil($aantalImgPerRow);
+        temp = temp*$aantalImgPerRow;
+        if((temp < 1) && (temp > 0)){
+          $aantalImgPerRow = Math.round(temp);
+          return $aantalImgPerRow;
+        }
+        else if(temp == 0){
+          $aantalImgPerRow = $aantalImgPerRow;
           return $aantalImgPerRow;
         }
         else{
