@@ -561,9 +561,13 @@ $(window).on('resize', function() {
         }
         else{
         temp = $aantalImgPerRow*temp%1;
-        $aantalImgPerRow = temp*$aantalImgPerRow;
-        if($aantalImgPerRow < 1){
-          $aantalImgPerRow = Math.ceil($aantalImgPerRow);
+        temp = temp*$aantalImgPerRow;
+        if((temp < 1) && (temp > 0)){
+          $aantalImgPerRow = Math.round(temp);
+          return $aantalImgPerRow;
+        }
+        else if(temp == 0){
+          $aantalImgPerRow = $aantalImgPerRow;
           return $aantalImgPerRow;
         }
         else{
