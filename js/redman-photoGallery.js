@@ -563,8 +563,15 @@ $(window).on('resize', function() {
         temp = $aantalImgPerRow*temp%1;
         temp = temp*$aantalImgPerRow;
         if((temp < 1) && (temp > 0)){
-          $aantalImgPerRow = Math.round(temp);
+          temp = Math.round(temp);
+          if (temp == 0){
+            $aantalImgPerRow = $aantalImgPerRow;
+            return $aantalImgPerRow;
+          }
+          else{
+            $aantalImgPerRow = temp;
           return $aantalImgPerRow;
+          }
         }
         else if(temp == 0){
           $aantalImgPerRow = $aantalImgPerRow;
