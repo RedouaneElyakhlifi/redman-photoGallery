@@ -161,11 +161,25 @@
         $('button[id^="redman-image'+$a+'"]').css('width',firstImageOfGallery);
         var customHeight = $($('.redman-gallery')[$a]).attr('data-redman-startHeight');
         if (customHeight != undefined){
-        $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        if (($(window).width() <= 1200) && ($(window).width() >= 768)){
+          customHeight = (customHeight / $($('.redman-gallery')[$a]).attr("data-redman-screenwidth")) * $(window).width();
+          $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        }
+        else if(($(window).width() <= 767)){
+          customHeight = (customHeight / 100)*150;
+          $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        }
+        else{
+          $('button[id^="redman-image'+$a+'"').css('height',customHeight+'px');
+        }
         }
         var pageHeigth = $($('.redman-row'+$a)[0]).css('height');
+        if($(window).width() <= 1000 ){
+
+        }else{
         $('#redman-pageheight'+$a).css('height',pageHeigth);
         $('#redman-pageheight'+$a).addClass('d-flex justify-content-center');
+        }
       }
 
 
@@ -545,7 +559,8 @@ $(window).on('resize', function() {
           return $aantalImgPerRow;
         }
         else{
-          $aantalImgPerRow = Math.round($aantalImgPerRow);
+          
+          $aantalImgPerRow = Math.ceil($aantalImgPerRow);
           return $aantalImgPerRow;
         }
         }
@@ -564,7 +579,7 @@ $(window).on('resize', function() {
               return $aantalImgPerRow;
             }
             else{
-              test = Math.ceil(Number($aantalImgPerRow) * temp);
+              test = Math.round(Number($aantalImgPerRow) * temp);
               if(test == 0 ){
                 $aantalImgPerRow = $aantalImgPerRow;
                 return $aantalImgPerRow;
