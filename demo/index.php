@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
     <link rel="stylesheet" href="css/redman-photoGallery.min.css">
-
-
-
-
     
     <style>
     li{
@@ -28,7 +24,8 @@
     background-position:center;
 }
 #overlay{
-    background-color:rgb(0,0,0,0.8);
+    opacity: 0.8;
+    background-color:rgb(0,0,0);
 }
 .text-custom{
     text-shadow: black 5px 5px 1px;
