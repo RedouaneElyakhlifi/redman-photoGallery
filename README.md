@@ -19,6 +19,8 @@
 <img src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview3.JPG" alt="coming soon">
 <h4>Multiple photoGalleries on 1 page:</h4>
 <img src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview4.JPG" alt="coming soon">
+<h2>Video tutorial</h2>
+<iframe width="735" height="600" src="https://www.youtube.com/embed/DEQJp3fCzy0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2>Getting started | Full Documentation | Demo</h2>
 <h3>Visit: <a href="https://www.mijnsollicitatie.be/demo/">www.redman-photogallery.com</a></h3>
 <h2>Extra</h2>
