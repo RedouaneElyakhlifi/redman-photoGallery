@@ -85,6 +85,7 @@
         var breadCrumbPosition = document.createElement('div');
         breadCrumbPosition.setAttribute('id','redman-breadcrumbs'+$a);
         breadCrumbPosition.setAttribute('class','row no-gutters d-flex justify-content-center');
+        console.log(aantalBreadcrumbs)
         $($('.redman-gallery')[$a]).prepend(breadCrumbPosition);
         var buttonLeft = document.createElement('button');
         var buttonRight = document.createElement('button');
@@ -128,7 +129,7 @@
             button.setAttribute('id','redman-breadCrumb'+$a+$i);
             button.setAttribute('data-redman-active','yes');
             button.innerHTML = ($i);
-            buttonCollection.append(button);
+            buttonCollection.appendChild(button);
           }
           else{
             var button = document.createElement('button');
@@ -141,7 +142,7 @@
             button.setAttribute('id','redman-breadCrumb'+$a+$i);
             button.setAttribute('data-redman-active','no');
             button.innerHTML = ($i);
-            buttonCollection.append(button);
+            buttonCollection.appendChild(button);
           }
           $('#redman-breadcrumbs'+$a).append(buttonCollection);
         }
