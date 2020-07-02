@@ -19,6 +19,8 @@
 <img src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview3.JPG" alt="coming soon">
 <h4>Multiple photoGalleries on 1 page:</h4>
 <img src="https://github.com/RedouaneElyakhlifi/redman-photoGallery/blob/master/content/img/preview4.JPG" alt="coming soon">
+<h2>Video preview</h2>
+Watch on youtube the video preview: https://www.youtube.com/watch?v=DEQJp3fCzy0
 <h2>Extra</h2>
 <h3>Go to <a href="https://github.com/RedouaneElyakhlifi/redman-photoGallery/tree/master/extra/httpsConvert">extra/httpsConvert/</a> and download <a href="https://github.com/RedouaneElyakhlifi/redman-photoGallery/tree/master/extra/httpsConvert">https.js</a></h3>
 <h3>Insert it as your 1st script on any webpage to redirect your visitors through a secure https-protocol.</h3>
